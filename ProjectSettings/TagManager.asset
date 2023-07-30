@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BoxWood
+  - Statue
   layers:
   - Default
   - TransparentFX
@@ -23,14 +25,14 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player 1
+  - Player 2
+  - WoodBox
+  - StoneBox
+  - Statue
   - Layer 1
   - Layer 2
   - Layer 3
-  - 
-  - 
-  - 
   - 
   - 
   - 
