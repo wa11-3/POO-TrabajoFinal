@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class TotemsBox : Box, IPowerable
 {
-    private string _powerUp = "ghost";
+    [SerializeField]
+    private string _powerUp;
     public string power { get => _powerUp; set => _powerUp = value; }
     public GameObject Glow;
 
@@ -43,7 +44,7 @@ public class TotemsBox : Box, IPowerable
     public IEnumerator ActivateAniPowerUp()
     {
         Glow.SetActive(true);
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(10.0f);
         Glow.SetActive(false);
     }
 }

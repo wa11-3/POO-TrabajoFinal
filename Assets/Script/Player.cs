@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
         animator.SetBool("IsMoving", dir.magnitude > 0);
 
         GetComponent<Rigidbody2D>().velocity = speed * dir;
-        //GetComponent<Rigidbody2D>().AddForce(speed * dir);
 
         if (Input.GetKeyDown(_controlsKey[4]))
         {
@@ -68,7 +67,6 @@ public class Player : MonoBehaviour
             {
                 if (nearObject.TryGetComponent(out IPowerable powerable))
                 {
-                    //Debug.Log(powerable.power);
                     powerable.SetPowerUp();
                     StartCoroutine(PowerUp(powerable.power));
                 }
@@ -81,10 +79,15 @@ public class Player : MonoBehaviour
         switch (power)
         {
             case "ghost":
-                //boxCollider.excludeLayers = ~0;
                 boxCollider.excludeLayers = LayerMask.GetMask(new string[] { "Player 1", "Player 2", "WoodBox", "StoneBox"});
-                yield return new WaitForSeconds(5.0f);
+                yield return new WaitForSeconds(10.0f);
                 boxCollider.excludeLayers = 0;
+                break;
+
+            case "mini":
+                this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                yield return new WaitForSeconds(10.0f);
+                this.transform.localScale = new Vector3(1f, 1f, 1f);
                 break;
         }
     }
